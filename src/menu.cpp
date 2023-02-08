@@ -12,6 +12,7 @@ void Frontend::welcome_menu()
                     "Please select from the following menu" << std::endl;
         
         std::cout << "1) Show our menu for today\n"
+                     "2) Place an order\n"
                      "What can we do for you today?\n" << std::endl;
         int user_input;
 
@@ -21,6 +22,22 @@ void Frontend::welcome_menu()
         {
             food_menu();
         }
+        // else if (user_input ==2)
+        // {
+        //     /* code */
+        // }
+        // else if (user_input ==0)
+        // {
+        //     /* as for manager username and pin */
+                /*changing cash in register or updating inventory*/
+        // }
+
+        // else
+        // {
+        //     std::cout<<"Goodbye!" << std::endl;
+        // }
+        
+        
 
 
     }
