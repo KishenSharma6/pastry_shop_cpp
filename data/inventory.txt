@@ -1,0 +1,6 @@
+Item,Quantity,Price
+Apple Pie,4,14.99
+
+Coffee,100,4
+
+Apples,4,4
