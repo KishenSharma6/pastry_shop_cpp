@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 
@@ -59,7 +60,9 @@ void Inventory::add_item()
             std::cout << "Would you like to add another item to the inventory (Y/N)?" << std::endl;
             std::cin >> input;
 
-            if (input == "Y")
+            transform(input.begin(), input.end(), input.begin(), ::toupper);
+
+            if ((input) == "Y")
             {
                 ;
             }
@@ -82,21 +85,28 @@ void Inventory::remove_item()
         std::cout << "Which item would you like removed from inventory?" << std::endl;
         std::cin >> target;
 
-        std::ifstream inventory_file("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt");
-        std::ofstream temp("/home/kishen/documents/c++_projects/pastry_shop/data/temp.txt");
+        std::ifstream curr_inventory;
+        std::ofstream new_inventory;
+
+        curr_inventory.open("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt");
+        new_inventory.open("/home/kishen/documents/c++_projects/pastry_shop/data/temp.txt");
+        
 
         std::string line;
 
-        while (getline(inventory_file, line))
+        while (getline(curr_inventory, line))
         {
-            if (line.find(target) == std::string::npos)
+            if (line.rfind(target, 0) == 0)
             {
-                std::cout<<line<<"\n";
+                continue;
             }
+            new_inventory << line << std::endl;
         }
 
-        temp.close();
-        inventory_file.close();
+        new_inventory.close();
+        curr_inventory.close();
+        remove("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt");
+        rename("/home/kishen/documents/c++_projects/pastry_shop/data/temp.txt", "/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt");
         
         // rename("/home/kishen/documents/c++_projects/pastry_shop/data/temp.txt", "/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt");
         // remove("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt");
