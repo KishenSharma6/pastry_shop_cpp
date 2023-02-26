@@ -1,6 +1,7 @@
 Item,Quantity,Price
-Apple Pie,4,14.99
 
-Coffee,100,4
-
-Apples,4,4
+coffee,30,2.99
+mimosa,100,50
+orange juice,99,99
+blueberry,4,12
+slice apple pie,8,4.99
