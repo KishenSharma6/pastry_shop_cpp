@@ -1,6 +1,8 @@
 #personal files
 todo.md
 .vscode/*
+data/*
+main.cpp
 
 #Executables
 test
