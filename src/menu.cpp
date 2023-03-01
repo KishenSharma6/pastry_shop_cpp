@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 
 #include "../include/menu.h"
 
@@ -20,7 +21,7 @@ void Frontend::welcome_menu()
 
         if (user_input == 1)
         {
-            food_menu();
+            view_inventory();
         }
         // else if (user_input ==2)
         // {
@@ -42,8 +43,20 @@ void Frontend::welcome_menu()
 
     }
 
-void Frontend::food_menu()
-{
-  std::cout << "Here is what we have available today\n" << std::endl;
-  /* Some code that creates a menu from inventory class*/  
+void view_inventory()
+{ /*Display current inventory to user*/
+    std::fstream inventory_file;
+    
+    std::cout << "Here is the current inventory:\n" << std::endl;
+    
+    inventory_file.open("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt", std::ios::in);
+    if (inventory_file.is_open())
+    {
+        std::string line;
+        while(getline(inventory_file, line))
+        {
+            std::cout << line << "/n" << std::endl;
+        }
+        inventory_file.close();
+    }
 }

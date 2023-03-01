@@ -10,7 +10,6 @@ class Inventory
 public:
 
     Inventory();
-    void view_inventory();
     void update_count();
     void add_item();
     void remove_item();

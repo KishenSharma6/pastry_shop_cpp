@@ -6,31 +6,12 @@
 #include <string>
 
 #include "../include/inventory.h"
+#include "../include/menu.h"
 
 
 
 Inventory::Inventory(){}
 
-void Inventory::view_inventory()
-    { /*Display current inventory to user*/
-        std::fstream inventory_file;
-        
-        std::cout << "Here is the current inventory:\n" << std::endl;
-        
-        inventory_file.open("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt", std::ios::in);
-
-        if (inventory_file.is_open())
-        {
-            std::string line;
-            while(getline(inventory_file, line))
-            {
-                std::cout << line << "/n" << std::endl;
-
-            }
-            inventory_file.close();
-        }
-
-    }
 
 void Inventory::update_count()
     {
@@ -46,7 +27,9 @@ void Inventory::update_count()
             std::string updated_quant = "";
             std::string updated_price = "";
 
-            std::cout << "Which inventory item would you like to update?" << std::endl;
+            view_inventory();
+
+            std::cout << "\nWhich inventory item would you like to update?" << std::endl;
             std::cin >> std::ws;
             getline(std::cin,target_item);
 
@@ -162,9 +145,11 @@ void Inventory::add_item()
 void Inventory::remove_item()
     {
         // remove item line in inventory.txt. NOTE matches on beginning of item name string
+        view_inventory();
+
         std::string target;
 
-        std::cout << "Which item would you like removed from inventory?" << std::endl;
+        std::cout << "\nWhich item would you like removed from inventory?" << std::endl;
         std::cin >> target;
 
         std::ifstream curr_inventory;
@@ -194,7 +179,7 @@ void Inventory::remove_item()
     }
 
 void write_inventory(std::string item, int quantity, float price)
-    {
+    {   /**/
         std::fstream inventory_file;
         inventory_file.open("/home/kishen/documents/c++_projects/pastry_shop/data/inventory.txt", std::fstream::app);
 

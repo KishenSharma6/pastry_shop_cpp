@@ -13,5 +13,6 @@ public:
 
     
 };
+void view_inventory();
 
 #endif
