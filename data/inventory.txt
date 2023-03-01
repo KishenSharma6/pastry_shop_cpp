@@ -1,7 +1,7 @@
-Item,Quantity,Price
-
-coffee,30,2.99
-mimosa,100,50
-orange juice,99,99
-blueberry,4,12
-slice apple pie,8,4.99
+Cold Brew Coffee,10,.99
+apple,10,.99
+Cin Bun,3,99
+dd,3,3
+Banana Crepe,5,7.99
+dd,10,.99
+ss,4,3

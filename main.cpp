@@ -1,5 +1,5 @@
 #include <iostream>
-#include <list>
+#include <map>
 #include <string>
 
 
@@ -9,13 +9,9 @@
 int main(){
     //Frontend test;
     //test.welcome_menu();
-    std::list<std::string> food;
-    std::list<std::string> drink;
     
-    food.push_back("apples");
-    food.push_back("pies");
-
-    Inventory test(food, drink);
-    test.write_inventory();
+    Inventory test;
+    test.update_count();
+   
     return 0;
 }
