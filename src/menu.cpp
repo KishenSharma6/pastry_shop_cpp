@@ -73,14 +73,31 @@ void Frontend::manager_login()
     }
     else
     {
-        inventory_menu();
+        manager_menu();
     }
 }
 
 void Frontend::manager_menu()
 {
     /*Allow verified manger to select whether to make changes to inventory or register*/
-    ;
+    int user_input;
+    
+    std::cout << "Which of the following would you like to do?\n"
+                 "1) Make updates to the inventory\n" 
+                 "2) Make updated to the register\n" <<std::endl;
+
+    std::cin >> user_input;
+
+    if (user_input ==1)
+    {
+        inventory_menu();
+    } else if (user_input == 2)
+    {
+        register_menu();
+    } else
+    {
+        throw std::invalid_argument("Incorrect input");
+    }
 }
 void Frontend::inventory_menu()
 {
@@ -117,7 +134,7 @@ void Frontend::inventory_menu()
 }
 void Frontend::register_menu()
 {
-    ;
+    std::cout << "return to later" ;
 }
 bool verify_input_username(std::string input_username, std::string path_to_data)
 {
@@ -150,8 +167,6 @@ bool verify_input_pw(std::string input_username, std::string input_pw,  std::str
     std::string line;
     int offset;
     std::ifstream data(path_to_data);
-    
-
     if (data.is_open())
     {
         while (!data.eof())
@@ -161,13 +176,13 @@ bool verify_input_pw(std::string input_username, std::string input_pw,  std::str
             {
                 data.close();
                 return true;
-        }
+            }
         data.close();
+        }
     }
     std::cout << "Incorrect Password, please try again.\n" << std::endl;
     return false;
     }
-}
 void view_inventory()
 { /*Display current inventory to user*/
     std::fstream inventory_file;
