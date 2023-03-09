@@ -6,6 +6,7 @@
 
 #include "../include/menu.h"
 #include "../include/inventory.h"
+#include "../include/cash_register.h"
 
 Frontend::Frontend(){}
 void Frontend::welcome_menu()
@@ -22,7 +23,7 @@ void Frontend::welcome_menu()
     std::cin >> user_input;
     if (user_input == 1)
     {
-        view_inventory(); //Probably should make a fancy menu for the user
+        view_inventory();
     }
     // else if (user_input ==2)
     // {
@@ -76,7 +77,6 @@ void Frontend::manager_login()
         manager_menu();
     }
 }
-
 void Frontend::manager_menu()
 {
     /*Allow verified manger to select whether to make changes to inventory or register*/
@@ -134,7 +134,33 @@ void Frontend::inventory_menu()
 }
 void Frontend::register_menu()
 {
-    std::cout << "return to later" ;
+    /*Acticates functions from cash_register.h*/
+    int user_input;
+    std::cout << "Welcome to the register menu. Please select from the options\n"
+                 "below: \n"
+                 "1) View register contents\n"
+                 "2) Add bills to register\n"
+                 "3) Remove bills from register\n"
+                 "4) Exit \n" << std::endl;
+
+    std::cin >> user_input;
+
+    if (user_input == 1)
+    {
+        
+    } else if (/* condition */)
+    {
+        /* code */
+    } else if (/* condition */)
+    {
+        /* code */
+    } else if (/* condition */)
+    {
+        /* code */
+    } else
+    {
+
+    }
 }
 bool verify_input_username(std::string input_username, std::string path_to_data)
 {
