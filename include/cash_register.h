@@ -13,6 +13,10 @@ private:
     
 public:
     Cash_Register();
+    bool verify_register(Cash_Register);
+    void write_register(Cash_Register, std::string path_to_data);
+    void read_register(Cash_Register, std::string path_to_data);
+    void update_register();
     
 
 };
