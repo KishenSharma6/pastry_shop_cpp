@@ -127,14 +127,18 @@ void Frontend::inventory_menu()
     } else
     {
         throw std::invalid_argument("Received incorrect input");
-    }
-    
-    
-    
+    }    
 }
 void Frontend::register_menu()
 {
-    /*Acticates functions from cash_register.h*/
+    /*check if data for register exists*/
+    std::ifstream register_data("/home/kishen/documents/c++_projects/pastry_shop_cpp/data/register.txt");
+    if (register_data.fail())
+    {
+        std::cout << "Register has not been set correctly. Returning you to the register menu" <<std::endl;
+        register_menu();
+    }
+
     int user_input;
     std::cout << "Welcome to the register menu. Please select from the options\n"
                  "below: \n"
@@ -148,13 +152,13 @@ void Frontend::register_menu()
     if (user_input == 1)
     {
         
-    } else if (/* condition */)
+    } else if (user_input == 2)
     {
         /* code */
-    } else if (/* condition */)
+    } else if (user_input == 3)
     {
         /* code */
-    } else if (/* condition */)
+    } else if (user_input == 4)
     {
         /* code */
     } else

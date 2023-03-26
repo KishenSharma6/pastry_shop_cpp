@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include <fstream>
 
@@ -6,10 +7,10 @@
 
 Cash_Register::Cash_Register()
 {
-    int twenties;
-    int tens;
-    int fives;
-    int ones;
+    int twenties = 0;
+    int tens = 0;
+    int fives = 0;
+    int ones = 0;
 
     
 
@@ -55,6 +56,8 @@ bool Cash_Register::verify_register(const Cash_Register& cash_reg)
 
 int Cash_Register::write_register(const Cash_Register& cash_reg, std::string path_to_data)
 {
+    /*Takes register object and writes attributes to path_to_data*/
+    
     std::ofstream register_data(path_to_data);
     register_data << cash_reg.twenties << "," << cash_reg.tens << "," << cash_reg.fives << ","<<
                      cash_reg.ones << std::endl;
@@ -64,10 +67,25 @@ int Cash_Register::write_register(const Cash_Register& cash_reg, std::string pat
 
 };
 
-
-int Cash_Register::read_register(Cash_Register, std::string path_to_data)
+int Cash_Register::read_register(std::string path_to_data)
 {
+    /*Read and display register data to user*/
     std::ifstream register_data(path_to_data);
+    std::vector <std::string> bill_counts;
+    std:: vector <std::string> bills = {"twenties", "tens", "fives", "ones"};
+
+    
+    std::string line;
+
+    while (std::getline(register_data, line, ','))
+    {
+        bill_counts.push_back(line);
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+        std::cout << bills[i] << ".........." << bill_counts[i];
+    }
 
 
     return 0;
@@ -76,6 +94,7 @@ int Cash_Register::read_register(Cash_Register, std::string path_to_data)
 void Cash_Register::update_register()
 {
     //write changes to data after giving customer change
+    std::cout << "Still work to do" << std::endl;
     
 }
 

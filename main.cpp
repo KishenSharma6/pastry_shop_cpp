@@ -5,6 +5,7 @@
 
 #include "include/menu.h"
 #include "include/inventory.h"
+#include "include/cash_register.h"
 
 int main(){
     Frontend test;
